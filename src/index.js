@@ -33,7 +33,6 @@ root.render(
     </Routes>
   </Router>
 );
-// ta daghighe 46
 function Home() {
   return (
     <div>
