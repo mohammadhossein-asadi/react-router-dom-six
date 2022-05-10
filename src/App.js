@@ -1,29 +1,57 @@
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 const Home = () => <h1>Home</h1>;
 const Blog = () => <h1>Blog</h1>;
 const About = () => <h1>About</h1>;
 
+const links = [
+  {
+    path: "/",
+    label: "Home",
+    exact: true,
+  },
+  {
+    path: "/blog",
+    label: "Blog",
+    exact: false,
+  },
+  {
+    path: "/about",
+    label: "About",
+    exact: false,
+  },
+];
+
 const Nav = () => (
   <ul>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/blog">Blog</Link>
-    </li>
-    <li>
-      <Link
-        to={{
-          pathname: "/about",
-        }}
-        replace
-        title="About us!"
-      >
-        About
-      </Link>
-    </li>
+    {links.map(({ path, label, exact }) => (
+      <li key={label}>
+        <NavLink to={path} exact={exact}>
+          {label}
+        </NavLink>
+      </li>
+    ))}
   </ul>
+
+  // <ul>
+  //   <li>
+  //     <Link to="/">Home</Link>
+  //   </li>
+  //   <li>
+  //     <Link to="/blog">Blog</Link>
+  //   </li>
+  //   <li>
+  //     <Link
+  //       to={{
+  //         pathname: "/about",
+  //       }}
+  //       replace
+  //       title="About us!"
+  //     >
+  //       About
+  //     </Link>
+  //   </li>
+  // </ul>
 );
 
 function App() {
