@@ -7,6 +7,7 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Home} />
+      <Route strict path="/blog/" component={Blog} />
     </Router>
   );
 }
